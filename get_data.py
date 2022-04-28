@@ -18,13 +18,9 @@ connect = psycopg2.connect(
 # Gettinglast data timestamp for incremental updating data
 cursor = connect.cursor()
 try:
-    cursor.execute("""SELECT 
-                            CASE WHEN MAX(newsfeed_date) IS NULL 
-                                 THEN EXTRACT(EPOCH FROM (current_date - 1)::timestamp) 
-                                 ELSE MAX(newsfeed_date) 
-                            END::bigint 
+    cursor.execute("""SELECT GREATEST(MAX(newsfeed_date), EXTRACT(EPOCH FROM (current_date - 1)::timestamp))::bigint 
                       FROM demo_ikea.demo_ikea.newsfeed
-                    """
+                   """
                    )
 finally:
     connect.commit()
