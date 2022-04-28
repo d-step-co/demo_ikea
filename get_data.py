@@ -31,7 +31,7 @@ finally:
 
 # Setting of variables for configuration of API request
 api_version = 5.131
-token = '27d76222769d4a052e12982bdba1f09b33cffe7ef6171648931f1c843857c07617de8b0ba69bb3bc3c97e'
+token = '55a0d56d4abb7c4e22eb92621f4507fc703017285770e9cc699f0705db893f8e96ef5f147fd3dbebb49e4'
 keywords = ['ikea', 'икея', 'икеа']
 message_count = 200
 start_time = start_time_unix
